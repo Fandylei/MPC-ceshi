@@ -473,7 +473,7 @@ Status MPCController::ComputeControlCommand(
   steer_angle = digital_filter_.Filter(steer_angle);
   // Clamp the steer angle to -100.0 to 100.0
   steer_angle = common::math::Clamp(steer_angle, -100.0, 100.0);
-  cmd->set_steering_target(steer_angle);
+  cmd->set_steering_target(steer_angle*650/100);
 
   debug->set_acceleration_cmd_closeloop(acc_feedback);
 
